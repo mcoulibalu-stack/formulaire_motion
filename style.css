@@ -1,0 +1,525 @@
+/* ==========================================================================
+   1. VARIABLES & CONFIGURATION GENERALE
+   ========================================================================== */
+:root {
+    --bg-main: #0b0f19;         /* Fond sombre profond ultra-moderne */
+    --bg-card: #131a26;         /* Fond des conteneurs et cartes */
+    --input-bg: #1e2633;        /* Fond des champs de saisie */
+    --border-color: #2e3b4e;    /* Bordure par défaut */
+    --accent-color: #f59e0b;    /* Jaune/Ambre premium (BSK DEZIGNER style) */
+    --text-main: #ffffff;       /* Texte principal blanc */
+    --text-muted: #94a3b8;      /* Texte secondaire gris adouci */
+    --success-color: #22c55e;   /* Vert WhatsApp */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ==========================================================================
+   2. STRUCTURE DU FORMULAIRE
+   ========================================================================== */
+.form-container {
+    background-color: var(--bg-card);
+    width: 100%;
+    max-width: 680px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    color: var(--text-main);
+}
+
+.step-counter {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    background-color: var(--input-bg);
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+/* Gestion de l'affichage des étapes en JS */
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Titres des étapes */
+.step-tag {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent-color);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.step-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.step-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   3. CHAMPS DE SAISIE (INPUTS & TEXTAREAS)
+   ========================================================================== */
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 580px) {
+    .input-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+textarea {
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    width: 100%;
+    font-family: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.15);
+}
+
+/* ==========================================================================
+   4. CARTES D'OPTIONS (GRID, RADIO & CHECKBOX)
+   ========================================================================== */
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+@media (max-width: 480px) {
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Structure de la carte cliquable */
+.option-card {
+    position: relative;
+    cursor: pointer;
+    display: block;
+}
+
+/* On masque l'input natif pour utiliser notre design personnalisé */
+.option-card input[type="radio"],
+.option-card input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Contenu interne de la carte */
+.card-content {
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 18px;
+    height: 100%;
+    transition: all 0.25s ease;
+}
+
+.card-content h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-main);
+}
+
+.card-content p {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* Hover : Légère surbrillance au survol */
+.option-card:hover .card-content {
+    border-color: #475569;
+    background-color: #232d3d;
+}
+
+/* Sélection active par défaut (Bordure blanche ou grise selon les étapes) */
+.option-card input:checked + .card-content {
+    border-color: var(--text-main);
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* ==========================================================================
+   5. PERSONNALISATION DES INDICATEURS (CYLINDRE/ROND & CARRE)
+   ========================================================================== */
+/* Les Ronds (Radio) — Étape 3, 4, 5, 7 */
+.radio-circle .card-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 20px;
+}
+
+.circle-indicator {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.radio-circle input:checked + .card-content .circle-indicator {
+    border-color: var(--accent-color);
+    background-color: var(--accent-color);
+    box-shadow: inset 0 0 0 3px var(--input-bg);
+}
+
+/* Les Carrés (Checkbox) — Étape 8, 9 */
+.checkbox-card .card-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.square-indicator {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    display: inline-block;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.checkbox-card input:checked + .card-content .square-indicator {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/* Style spécifique aux icônes de formats (Étape 8) */
+.operational-grid .card-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.icon-placeholder {
+    background-color: #2e3b4e;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border: 1px dashed #475569;
+}
+.horizontal-rect { width: 40px; height: 22.5px; } /* 16:9 ratio */
+.vertical-rect { width: 22.5px; height: 40px; }   /* 9:16 ratio */
+.square-rect { width: 30px; height: 30px; }       /* 1:1 ratio */
+
+/* ==========================================================================
+   6. COMPOSANTS AVANCÉS (ÉTAPES MULTIPLES)
+   ========================================================================== */
+/* Étape 7 : Dispositions des grandes boîtes matrix */
+.matrix-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.big-card .card-content {
+    align-items: flex-start;
+    padding: 25px;
+}
+.card-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.card-text-wrapper h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+/* Badges de technicité (Étape 7) */
+.badge-tech {
+    background-color: #1e293b;
+    color: var(--text-muted);
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+.badge-recommended {
+    background-color: var(--accent-color);
+    color: var(--bg-main);
+    margin-right: 6px;
+}
+
+/* Fenêtre d'alerte Indigo (Étape 8) */
+.alert-box {
+    background-color: #1e1b4b;
+    border: 1px solid #3730a3;
+    padding: 15px 20px;
+    border-radius: 8px;
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    align-items: center;
+}
+.alert-icon { font-size: 18px; }
+.alert-box p {
+    color: #c7d2fe;
+    font-size: 13px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Mise en page en colonne pure (Étape 9 & 10) */
+.column-layout {
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+.formal-row .card-content {
+    padding: 16px;
+}
+
+/* Mode Bordures Dorées/Ambre (Étape 10 - Conditions & Droits) */
+.section-micro-title {
+    font-size: 11px;
+    color: var(--accent-color);
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: block;
+    margin: 25px 0 10px 0;
+    text-transform: uppercase;
+}
+.highlight-mode .option-card .card-content {
+    border-color: var(--border-color);
+}
+.highlight-mode input:checked + .card-content {
+    border: 1px solid var(--accent-color);
+}
+.legal-text h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #e2e8f0;
+    line-height: 1.5;
+}
+.final-ack {
+    margin-top: 10px;
+}
+
+/* Boutons d'ajouts dynamiques (Étape 11) */
+.btn-add-question {
+    background: transparent;
+    border: 1px dashed var(--border-color);
+    color: white;
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+.btn-add-question:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    background-color: rgba(245, 158, 11, 0.02);
+}
+
+/* ==========================================================================
+   7. RÉCAPITULATIF & BOUTONS DE NAVIGATION CONSOLE
+   ========================================================================== */
+/* Conteneur de récap (Étape 12) */
+.recap-box {
+    background-color: #0b111e;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+}
+.recap-header {
+    font-weight: 700;
+    color: var(--accent-color);
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 6px;
+    text-transform: uppercase;
+}
+.recap-content {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* Barre de navigation standard (Précédent / Suivant) */
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 35px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 25px;
+}
+
+.btn-primary, .btn-secondary {
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 14px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background-color: var(--text-main);
+    color: var(--bg-main);
+    border: none;
+    margin-left: auto; /* Pousse le bouton Suivant vers la droite */
+}
+.btn-primary:hover {
+    background-color: #e2e8f0;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+}
+.btn-secondary:hover {
+    border-color: #475569;
+    color: var(--text-main);
+}
+
+/* Boutons spécifiques de soumission finale (Étape 12) */
+.btn-whatsapp:hover {
+    background-color: #16a34a !important;
+}
+.btn-download-pdf:hover {
+    background-color: rgba(245, 158, 11, 0.05) !important;
+}
+/* ==========================================================================
+   8. CONFIGURATION POUR L'IMPRESSION PDF CLEAN
+   ========================================================================== */
+@media print {
+    /* Cache tout le site sauf le conteneur du formulaire */
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    .form-container {
+        border: none !important;
+        box-shadow: none !important;
+        background: white !important;
+        color: black !important;
+        padding: 0 !important;
+    }
+    /* Cache les étapes intermédiaires cachées et la barre de boutons du bas */
+    .form-navigation,
+    .submit-actions-group,
+    .form-header,
+    .step-tag,
+    .step-subtitle {
+        display: none !important;
+    }
+    /* Force l'affichage unique de la zone de récapitulatif */
+    .form-step { display: none !important; }
+    .form-step[data-step="12"] { display: block !important; }
+    .recap-box {
+        background: #f8fafc !important;
+        border: 1px solid #cbd5e1 !important;
+        color: black !important;
+    }
+    .recap-header {
+        color: #b45309 !important;
+        border-bottom: 1px solid #cbd5e1 !important;
+    }
+    .recap-content { color: #334155 !important; }
+}

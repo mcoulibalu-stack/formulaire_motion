@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brief Creative - Informagicien</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="form-container">
+        <header class="form-header">
+            <div class="logo">INFORMAGICIEN</div>
+            <div class="step-counter">Étape <span id="current-step-text">1</span> / 12</div>
+        </header>
+
+        <form id="multi-step-form">
+            
+            <div class="form-step active" data-step="1">
+                <div class="step-tag">— ÉTAPE 01</div>
+                <h2 class="step-title">Vos Coordonnées</h2>
+                <p class="step-subtitle">Commençons par vous connaître pour faciliter nos échanges.</p>
+
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>NOM COMPLET *</label>
+                        <input type="text" placeholder="Votre nom" required>
+                    </div>
+                    <div class="input-group">
+                        <label>NOM DE L'ENTREPRISE</label>
+                        <input type="text" placeholder="Votre société">
+                    </div>
+                    <div class="input-group">
+                        <label>TÉLÉPHONE (WHATSAPP) *</label>
+                        <input type="tel" placeholder="Votre numéro" required>
+                    </div>
+                    <div class="input-group">
+                        <label>PAYS DE RÉSIDENCE *</label>
+                        <input type="text" placeholder="Votre pays" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-step" data-step="2">
+                <div class="step-tag">— ÉTAPE 02</div>
+                <h2 class="step-title">Type de Projet</h2>
+                <p class="step-subtitle">Sélectionnez la catégorie qui correspond le mieux à votre besoin.</p>
+
+                <div class="options-grid">
+                    <label class="option-card">
+                        <input type="radio" name="project_type" value="app_mobile" checked>
+                        <div class="card-content">
+                            <h3>Spot • App Mobile</h3>
+                            <p>Promo application iOS/Android</p>
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="project_type" value="app_web">
+                        <div class="card-content">
+                            <h3>Spot • App Web</h3>
+                            <p>Présentation plateforme web</p>
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="project_type" value="plateforme_saas">
+                        <div class="card-content">
+                            <h3>Spot • Plateforme SAAS</h3>
+                            <p>Explication logiciel</p>
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="project_type" value="evenementiel">
+                        <div class="card-content">
+                            <h3>Spot • Évènementiel</h3>
+                            <p>Teaser ou récap événement</p>
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="project_type" value="motion_flyer">
+                        <div class="card-content">
+                            <h3>Motion flyers</h3>
+                            <p>Affiche animée réseaux sociaux</p>
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="project_type" value="autre">
+                        <div class="card-content">
+                            <h3>Autre besoin</h3>
+                            <p>Précisez votre demande</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-step" data-step="3">
+                <div class="step-tag">— ÉTAPE 03</div>
+                <h2 class="step-title">Détails du Projet</h2>
+                <p class="step-subtitle">Merci de nous fournir plus d'informations sur votre projet.</p>
+                
+                <div class="input-group" style="margin-bottom: 25px;">
+                    <label>DESCRIPTION DU PROJET *</label>
+                    <textarea placeholder="Décrivez votre projet (Contexte, cible, message clé...)" rows="5" required></textarea>
+                </div>
+
+                <label class="field-label" style="font-size: 11px; color: #94a3b8; font-weight: 600; display: block; margin-bottom: 10px;">OBJECTIFS PRINCIPAUX *</label>
+                <div class="options-grid">
+                    <label class="option-card radio-circle">
+                        <input type="radio" name="objectif" value="notoriete" checked>
+                        <div class="card-content">
+                            <span class="circle-indicator"></span>
+                            <h3>Notoriété de la marque</h3>
+                        </div>
+                    </label>
+                    <label class="option-card radio-circle">
+                        <input type="radio" name="objectif" value="ventes">
+                        <div class="card-content">
+                            <span class="circle-indicator"></span>
+                            <h3>Augmentation des ventes</h3>
+                        </div>
+                    </label>
+                    <label class="option-card radio-circle">
+                        <input type="radio" name="objectif" value="evenement">
+                        <div class="card-content">
+                            <span class="circle-indicator"></span>
+                            <h3>Promotion événementielle</h3>
+                        </div>
+                    </label>
+                    <label class="option-card radio-circle">
+                        <input type="radio" name="objectif" value="explication">
+                        <div class="card-content">
+                            <span class="circle-indicator"></span>
+                            <h3>Explication de service</h3>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-step" data-step="4">
+                <div class="step-tag">— ÉTAPE 04</div>
+                <h2 class="step-title">Durée du spot</h2>
+                <p class="step-subtitle">Sélectionnez la durée qui correspond le mieux à votre besoin.</p>
+                
+                <div class="options-grid">
+                    <label class="option-card radio-circle">
+                        <input type="radio" name="duree" value="15s" checked>
+                        <div class="card-content">
+                            <span class="circle-indicator"></span>
+                            <h3>Moins de 15s</h3>
+                            <p>Format très court (Story / Shorts)</p>
+                        </div>
+                    </label>
+                    <label class="option-card radio-circle">
+                        <input type="radio" name="duree" value="30s">
+                        <div class="card-content">
+                            <span class="circle-indicator"></span>
+                            <h3>30 secondes</h3>
+                            <p>Format équilibré réseaux</p>
+                        </div>
+                    </label>
+                    <label class="option-card radio-circle">
+                        <input type="radio" name="duree" value="45s">
+                        <div class="card-content">
+                            <span class="circle-indicator"></span>
+                            <h3>45 secondes</h3>
+                            <p>Idéal pour pitch complet</p>
+                        </div>
+                    </label>
+                    <label class="option-card radio-circle">
+                        <input type="radio" name="duree" value="60s">
+                        <div class="card-content">
+                            <span class="circle-indicator"></span>
+                            <h3>60 secondes et +</h3>
+                            <p>Présentation ultra détaillée</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-step" data-step="5">
+                <div class="step-tag">— ÉTAPE 05</div>
+                <h2 class="step-title">Voix et Script</h2>
+                <p class="step-subtitle">Comment souhaitez-vous que votre message soit transmis ?</p>
+                
+                <label class="field-label" style="font-size: 11px; color: #94a3b8; font-weight: 600; display: block; margin-bottom: 10px;">TYPE DE VOIX *</label>
+                <div class="options-grid" style="margin-bottom: 25px;">
+                    <label class="option-card radio-circle">
+                        <input type="radio" name="voix" value="humaine" checked>
+                        <div class="card-content">
+                            <span class="circle-indicator"></span>
+                            <h3>Voix humaine naturelle</h3>
+                        </div>
+                    </label>
+                    <label class="option-card radio-circle">
+                        <input type="radio" name="voix" value="ia">
+                        <div class="card-content">
+                            <span class="circle-indicator"></span>
+                            <h3>Voix générée par IA</h3>
+                        </div>
+                    </label>
+                    <label class="option-card radio-circle">
+                        <input type="radio" name="voix" value="aucune">
+                        <div class="card-content">
+                            <span class="circle-indicator"></span>
+                            <h3>Pas de voix off</h3>
+                        </div>
+                    </label>
+                </div>
+
+                <label class="field-label" style="font-size: 11px; color: #94a3b8; font-weight: 600; display: block; margin-bottom: 10px;">GESTION DU SCRIPT *</label>
+                <div class="options-grid">
+                    <label class="option-card radio-circle">
+                        <input type="radio" name="script" value="fourni" checked>
+                        <div class="card-content">
+                            <span class="circle-indicator"></span>
+                            <h3>Je fournis le script</h3>
+                            <p>Texte complet prêt à enregistrer</p>
+                        </div>
+                    </label>
+                    <label class="option-card radio-circle">
+                        <input type="radio" name="script" value="redaction_informagicien">
+                        <div class="card-content">
+                            <span class="circle-indicator"></span>
+                            <h3>Je confie la rédaction</h3>
+                            <p>L'Informagicien rédige pour moi</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-step" data-step="6">
+                <div class="step-tag">— ÉTAPE 06</div>
+                <h2 class="step-title">Direction artistique</h2>
+                <p class="step-subtitle">Sélectionnez le style de visuels qui vous inspirent.</p>
+                
+                <div class="options-grid">
+                    <label class="option-card">
+                        <input type="radio" name="style_art" value="minimaliste" checked>
+                        <div class="card-content">
+                            <h3>Minimaliste & Épuré</h3>
+                            <p>Focus efficacité et clarté</p>
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="style_art" value="futuriste">
+                        <div class="card-content">
+                            <h3>Futuriste & Tech</h3>
+                            <p>Effets néons, HUD et univers sombre</p>
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="style_art" value="corporate">
+                        <div class="card-content">
+                            <h3>Corporate & Pro</h3>
+                            <p>Idéal B2B et présentations sérieuses</p>
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="style_art" value="colore">
+                        <div class="card-content">
+                            <h3>Coloré & Dynamique</h3>
+                            <p>Fort impact visuel pop</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <!-- ÉTAPE 7 : Niveau de Complexité (Réf: image_18.png) -->
+            <div class="form-step" data-step="7">
+                <div class="step-tag">— ÉTAPE 07</div>
+                <h2 class="step-title">Niveau de Complexité</h2>
+                <p class="step-subtitle">Définissez le niveau de sophistication de l'animation.</p>
+
+                <div class="options-grid matrix-layout">
+                    <label class="option-card radio-circle big-card">
+                        <input type="radio" name="complexity" value="standard" checked>
+                        <div class="card-content">
+                            <span class="circle-indicator"></span>
+                            <div class="card-text-wrapper">
+                                <h3>STANDARD</h3>
+                                <span class="badge-tech">Essentiel</span>
+                                <p>Animation 2D épurée, transitions fluides. Efficace et direct.</p>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="option-card radio-circle big-card">
+                        <input type="radio" name="complexity" value="premium">
+                        <div class="card-content">
+                            <span class="circle-indicator"></span>
+                            <div class="card-text-wrapper">
+                                <h3>PREMIUM</h3>
+                                <span class="badge-tech badge-recommended">Recommandé</span>
+                                <span class="badge-tech">Avancé</span>
+                                <p>Effets visuels poussés, particules, profondeur 2.5D. Rendu très professionnel.</p>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- ÉTAPE 8 : Format & Diffusion (Réf: image_14.png) -->
+            <div class="form-step" data-step="8">
+                <div class="step-tag">— ÉTAPE 08</div>
+                <h2 class="step-title">Format & Diffusion</h2>
+                <p class="step-subtitle">Sur quelles plateformes la vidéo sera-t-elle diffusée ?</p>
+
+                <div class="options-grid operational-grid">
+                    <label class="option-card checkbox-card">
+                        <input type="checkbox" name="formats" value="16_9">
+                        <div class="card-content">
+                            <div class="icon-placeholder horizontal-rect"></div>
+                            <h3>16:9 Horizontal</h3>
+                            <p>YouTube, Web, TV</p>
+                        </div>
+                    </label>
+                    <label class="option-card checkbox-card">
+                        <input type="checkbox" name="formats" value="9_16">
+                        <div class="card-content">
+                            <div class="icon-placeholder vertical-rect"></div>
+                            <h3>9:16 Vertical</h3>
+                            <p>TikTok, Reels, Shorts</p>
+                        </div>
+                    </label>
+                    <label class="option-card checkbox-card">
+                        <input type="checkbox" name="formats" value="1_1">
+                        <div class="card-content">
+                            <div class="icon-placeholder square-rect"></div>
+                            <h3>1:1 Carré</h3>
+                            <p>Feed Instagram/FB</p>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Message d'alerte (Réf: image_14.png) -->
+                <div class="alert-box alert-warning">
+                    <span class="alert-icon">⚠️</span>
+                    <p><strong>Note sur les formats multiples :</strong> La déclinaison d'une même vidéo en plusieurs formats (ex: 16:9 + 9:16) implique un travail de recomposition. Un supplément de 40% du tarif de base s'applique par format additionnel.</p>
+                </div>
+            </div>
+
+            <!-- ÉTAPE 9 : Référence & Documents (Réf: image_13.png et image_17.png) -->
+            <div class="form-step" data-step="9">
+                <div class="step-tag">— ÉTAPE 09</div>
+                <h2 class="step-title">Référence & Documents</h2>
+                <p class="step-subtitle">Montrez-nous ce que vous aimez (optionnel).</p>
+
+                <div class="input-group" style="margin-bottom: 20px;">
+                    <label>LIEN DE RÉFÉRENCE (INSPIRATION)</label>
+                    <input type="url" placeholder="URL YouTube, Vimeo, TikTok...">
+                </div>
+
+                <div class="input-group" style="margin-bottom: 25px;">
+                    <label>QU'EST-CE QUI VOUS PLAÎT DANS CETTE RÉFÉRENCE ?</label>
+                    <textarea placeholder="L'énergie, les couleurs, la fluidité..." rows="3"></textarea>
+                </div>
+
+                <label class="field-label" style="font-size: 11px; color: #94a3b8; font-weight: 600; display: block; margin-bottom: 10px;">DOCUMENTS DISPONIBLES</label>
+                <div class="options-grid column-layout">
+                    <label class="option-card checkbox-card formal-row">
+                        <input type="checkbox" name="docs" value="cahier_des_charges">
+                        <div class="card-content">
+                            <span class="square-indicator"></span>
+                            <h3>J'ai un cahier des charges détaillé à transmettre</h3>
+                        </div>
+                    </label>
+                    <label class="option-card checkbox-card formal-row">
+                        <input type="checkbox" name="docs" value="charte_graphique">
+                        <div class="card-content">
+                            <span class="square-indicator"></span>
+                            <h3>J'ai une charte graphique stricte à respecter</h3>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- ÉTAPE 10 : Conditions & Droits (Réf: image_15.png) -->
+            <div class="form-step" data-step="10">
+                <div class="step-tag">— ÉTAPE 10</div>
+                <h2 class="step-title">Conditions & Droits</h2>
+                <p class="step-subtitle">Pour me permettre de mieux comprendre votre projet.</p>
+
+                <div class="legal-section-wrapper">
+                    <label class="section-micro-title">FICHIERS SOURCES</label>
+                    <div class="options-grid column-layout highlight-mode" style="margin-bottom: 20px;">
+                        <label class="option-card radio-circle legal-row">
+                            <input type="radio" name="sources" value="non" checked>
+                            <div class="card-content">
+                                <span class="circle-indicator"></span>
+                                <div class="legal-text">
+                                    <h3>Non • Livraison de la vidéo finale uniquement (.mp4 / .mov)</h3>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="option-card radio-circle legal-row">
+                            <input type="radio" name="sources" value="oui">
+                            <div class="card-content">
+                                <span class="circle-indicator"></span>
+                                <div class="legal-text">
+                                    <h3>Oui • J'acquiers les fichiers sources modifiables (.aep / .prproj)</h3>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <label class="section-micro-title">DROITS DE DIFFUSION</label>
+                    <div class="options-grid column-layout highlight-mode" style="margin-bottom: 20px;">
+                        <label class="option-card radio-circle legal-row">
+                            <input type="radio" name="rights" value="portfolio" checked>
+                            <div class="card-content">
+                                <span class="circle-indicator"></span>
+                                <div class="legal-text">
+                                    <h3>J'autorise Informagicien à utiliser des extraits du projet dans son portfolio</h3>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="option-card radio-circle legal-row">
+                            <input type="radio" name="rights" value="confidentiel">
+                            <div class="card-content">
+                                <span class="circle-indicator"></span>
+                                <div class="legal-text">
+                                    <h3>Projet confidentiel — Option White Label (pas de publication portfolio)</h3>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <label class="section-micro-title">CONDITIONS DE LIVRAISON</label>
+                    <div class="options-grid column-layout highlight-mode">
+                        <label class="option-card radio-circle legal-row">
+                            <input type="radio" name="delivery" value="standard" checked>
+                            <div class="card-content">
+                                <span class="circle-indicator"></span>
+                                <div class="legal-text">
+                                    <h3>Livraison Standard — Délai minimum 5 jours ouvrés</h3>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="option-card radio-circle legal-row">
+                            <input type="radio" name="delivery" value="urgente">
+                            <div class="card-content">
+                                <span class="circle-indicator"></span>
+                                <div class="legal-text">
+                                    <h3>Livraison Urgente — 1 à 2 jours maximum</h3>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="option-card checkbox-card legal-row final-ack">
+                            <input type="checkbox" name="delivery_ack" required>
+                            <div class="card-content">
+                                <span class="square-indicator"></span>
+                                <div class="legal-text">
+                                    <h3>Je comprends que la version finale ne sera livrée qu'après réception du paiement intégral. Une capture d'écran ou une version avec watermark me sera présentée pour validation avant la livraison définitive.</h3>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ÉTAPE 11 : Avez-vous des Questions ? (Réf: image_12.png) -->
+            <div class="form-step" data-step="11">
+                <div class="step-tag">— ÉTAPE 11</div>
+                <h2 class="step-title">Avez-vous des Questions ?</h2>
+                <p class="step-subtitle">Posez toutes vos questions, j'y répondrai dans le devis.</p>
+
+                <div class="input-group" style="margin-bottom: 20px;">
+                    <label>VOTRE QUESTION</label>
+                    <textarea placeholder="Ex: Quel est le format idéal pour Instagram ?" rows="4"></textarea>
+                </div>
+
+                <button type="button" class="btn-add-question">+ AJOUTER UNE QUESTION</button>
+                <p class="skip-notice" style="text-align: center; color: #94a3b8; font-size: 13px; margin-top: 20px;">Vous pouvez sauter cette étape si tout est clair.</p>
+            </div>
+
+            <!-- ÉTAPE 12 : Récapitulatif & Envoi (Réf: image_16.png) -->
+            <div class="form-step" data-step="12">
+                <div class="step-tag">— ÉTAPE 12</div>
+                <h2 class="step-title">Récapitulatif & Envoi</h2>
+                <p class="step-subtitle">Vérifiez vos informations avant de transmettre le brief.</p>
+
+                <div class="recap-container">
+                    <div class="recap-box">
+                        <div class="recap-header">CLIENT</div>
+                        <div class="recap-content" id="recap-client">
+                            <!-- Rempli en JS dynamique -->
+                        </div>
+                    </div>
+
+                    <div class="recap-box" style="margin-top: 15px;">
+                        <div class="recap-header">PROJET</div>
+                        <div class="recap-content" id="recap-project">
+                            <!-- Rempli en JS dynamique -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="submit-actions-group" style="margin-top: 30px; display: flex; flex-direction: column; gap: 12px;">
+                    <button type="submit" class="btn-whatsapp" style="background-color: #22c55e; color: white; width: 100%; border: none; padding: 15px; border-radius: 8px; font-weight: 600; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px;">
+                        💬 Soumettre le brief via WhatsApp
+                    </button>
+                    <button type="button" class="btn-download-pdf" style="background-color: transparent; color: #f59e0b; border: 1px solid #f59e0b; width: 100%; padding: 15px; border-radius: 8px; font-weight: 600; cursor: pointer;">
+                        📥 Télécharger copie PDF
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-navigation">
+                <button type="button" id="prev-btn" class="btn-secondary" style="display: none;">← PRÉCÉDENT</button>
+                <button type="button" id="next-btn" class="btn-primary">SUIVANT →</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
