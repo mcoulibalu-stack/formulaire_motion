@@ -96,6 +96,7 @@ function getFormDataSummary() {
     const script = document.querySelector('input[name="script"]:checked')?.nextElementSibling?.querySelector('h3')?.textContent || "Non sélectionné";
     const styleArt = document.querySelector('input[name="style_art"]:checked')?.nextElementSibling?.querySelector('h3')?.textContent || "Non sélectionné";
     const complexite = document.querySelector('input[name="complexity"]:checked')?.nextElementSibling?.querySelector('.card-text-wrapper h3')?.textContent || "Non sélectionné";
+    const budget = document.querySelector('input[name="budget"]:checked')?.closest('.option-bud')?.querySelector('span:last-child')?.textContent.trim() || "Non précisé";
     
     // Récupération des Textareas
     const description = document.querySelector('textarea[placeholder*="projet"]')?.value || "Aucune description";
@@ -110,7 +111,7 @@ function getFormDataSummary() {
 
     return {
         nom, entreprise, whatsapp, pays,
-        typeProjet, objectif, duree, voix, script, styleArt, complexite,
+        typeProjet, objectif, duree, voix, script, styleArt, complexite, budget,
         description, question, formatsText
     };
 }
@@ -135,6 +136,7 @@ function renderRecap() {
             <p><strong>Voix off & Script :</strong> ${data.voix} — ${data.script}</p>
             <p><strong>Style :</strong> ${data.styleArt}</p>
             <p><strong>Niveau de complexité :</strong> ${data.complexite}</p>
+            <p><strong>Budget estimé :</strong> ${data.budget}</p>
             <p><strong>Formats demandés :</strong> ${data.formatsText}</p>
             <p><strong>Description du projet :</strong> ${data.description}</p>
             ${data.question !== "Aucune question" ? `<p><strong>Question posée :</strong> ${data.question}</p>` : ''}
@@ -173,6 +175,7 @@ if (whatsappBtn) {
         message += `• *Complexité :* ${data.complexite}\n`;
         message += `• *Formats requis :* ${data.formatsText}\n\n`;
         message += `*📝 DESCRIPTION :*\n${data.description}\n\n`;
+        message += `*Budget estimé :* ${data.budget}\n`;
         if (data.question !== "Aucune question") {
             message += `*❓ QUESTION SOUMISE :*\n${data.question}\n`;
         }
