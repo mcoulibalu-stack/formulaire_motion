@@ -410,10 +410,79 @@ textarea:focus {
     background-color: rgba(245, 158, 11, 0.02);
 }
 
+/* etape 12 */
+
+.options-budjet{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.options-budjet .option-card .card-content {
+    padding: 20px;
+}
+.option-bud{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 20px;
+    background-color: var(--input-bg)  ;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.25s ease;
+}
+.option-bud:hover {
+    border-color: #475569;
+    background-color: #232d3d;
+    box-shadow: 0 0 10px rgba(71, 85, 105, 0.2);
+}
+.option-bud input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+.option-bud .radio {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    
+}
+.option-bud .radio::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+.option-bud input[type="radio"]:checked + .radio::after {
+    border-color: var(--accent-color);
+    opacity: 1;
+}
+.option-bud input:checked + .radio {
+    color: var(--text-main);
+    font-weight: 500;
+    transition: transform 0.2s ease;
+}
+.option-bud input:checked + .radio {
+    transform: scale(1.05);
+}
+
 /* ==========================================================================
    7. RÉCAPITULATIF & BOUTONS DE NAVIGATION CONSOLE
    ========================================================================== */
-/* Conteneur de récap (Étape 12) */
+/* Conteneur de récap (Étape 13) */
 .recap-box {
     background-color: #0b111e;
     border: 1px solid var(--border-color);
