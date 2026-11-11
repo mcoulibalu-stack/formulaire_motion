@@ -33,7 +33,7 @@
                     </div>
                     <div class="input-group">
                         <label>TÉLÉPHONE (WHATSAPP) *</label>
-                        <input type="tel" placeholder="Votre numéro" required>
+                        <input type="tel" placeholder="Votre numéro Ex: +223 xxxxxxxx" required>
                     </div>
                     <div class="input-group">
                         <label>PAYS DE RÉSIDENCE *</label>
@@ -334,7 +334,7 @@
                 <!-- Message d'alerte (Réf: image_14.png) -->
                 <div class="alert-box alert-warning">
                     <span class="alert-icon">⚠️</span>
-                    <p><strong>Note sur les formats multiples :</strong> La déclinaison d'une même vidéo en plusieurs formats (ex: 16:9 + 9:16) implique un travail de recomposition. Un supplément de 40% du tarif de base s'applique par format additionnel.</p>
+                    <p><strong>Note sur les formats multiples :</strong> La déclinaison d'une même vidéo en plusieurs formats (ex: 16:9 + 9:16) implique un travail de recomposition. Un supplément de 30% du tarif de base s'applique par format additionnel.</p>
                 </div>
             </div>
 
@@ -471,10 +471,46 @@
                 <button type="button" class="btn-add-question">+ AJOUTER UNE QUESTION</button>
                 <p class="skip-notice" style="text-align: center; color: #94a3b8; font-size: 13px; margin-top: 20px;">Vous pouvez sauter cette étape si tout est clair.</p>
             </div>
-
-            <!-- ÉTAPE 12 : Récapitulatif & Envoi (Réf: image_16.png) -->
-            <div class="form-step" data-step="12">
+            <!-- ÉTAPE 12 : Estimation du budget du client -->
+             <div class="form-step" data-step="12">
                 <div class="step-tag">— ÉTAPE 12</div>
+                <h2 class="step-title">Votre Intervalle de Budget</h2>
+                <p class="step-subtitle">Indiquez votre budget pour ce projet (optionnel).</p>
+
+                <div class="input-group" style="margin-bottom: 20px;">
+                    <label>BUDGET ESTIMÉ (en FCFA)</label>
+                    <div class="options-budjet">
+                        <label class="option-bud"> 
+                            <input type="radio" name="budget" value="0-50">
+                            <span class="radio" aria-hidden="true"></span>
+                            <span>- 50 000 FCFA </span>
+                        </label>
+                        <label class="option-bud">
+                            <input type="radio" name="budget" value="50-100">
+                            <span class="radio" aria-hidden="true"></span>
+                            <span>50 000 - 100 000 FCFA </span>
+                        </label>
+                        <label class="option-bud">
+                            <input type="radio" name="budget" value="100-200">
+                            <span class="radio" aria-hidden="true"></span>
+                            <span>100 000 - 200 000 FCFA </span>
+                        </label>
+                        <label class="option-bud">
+                            <input type="radio" name="budget" value="200-500">
+                            <span class="radio" aria-hidden="true"></span>
+                            <span>200 000 - 500 000 FCFA </span>
+                        </label>
+
+                    </div>
+                </div>
+
+                <p class="skip-notice" style="text-align: center; color: #94a3b8; font-size: 13px; margin-top: 20px;">Vous pouvez sauter cette étape si vous n'avez pas de budget précis.</p>
+
+             </div>
+
+            <!-- ÉTAPE 13 : Récapitulatif & Envoi (Réf: image_16.png) -->
+            <div class="form-step" data-step="13">
+                <div class="step-tag">— ÉTAPE 13</div>
                 <h2 class="step-title">Récapitulatif & Envoi</h2>
                 <p class="step-subtitle">Vérifiez vos informations avant de transmettre le brief.</p>
 
